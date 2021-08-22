@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-from __future__ import print_function
 import roslib; roslib.load_manifest('ur_driver')
 import time, sys, threading, math
 import copy
