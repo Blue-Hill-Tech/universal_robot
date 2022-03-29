@@ -5,7 +5,7 @@
   <xacro:include filename="$(find ur_description)/urdf/inc/ur3e_macro.xacro" />
 
   <!-- arm -->
-  <xacro:ur5e_robot prefix="" />
+  <xacro:ur3e_robot prefix="" />
 
   <!-- end-effector -->
   <xacro:include filename="$(find ur_description)/urdf/inc/eof_small.xacro" />
