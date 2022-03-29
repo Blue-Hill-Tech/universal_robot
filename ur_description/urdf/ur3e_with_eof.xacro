@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur3e_with_eof">
+
+  <!-- ur5e -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur3e_macro.xacro" />
+
+  <!-- arm -->
+  <xacro:ur5e_robot prefix="" />
+
+  <!-- end-effector -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/eof_small.xacro" />
+
+  <!-- end-effector -->
+  <!-- Here we include the end-effector by setting the parameters -->
+  <!-- TODO: check end-effector link name of robot -->
+  <xacro:eof prefix="" connected_to="tool0"/>
+</robot>
