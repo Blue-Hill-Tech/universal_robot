@@ -1,6 +1,6 @@
 <launch>
   <!-- load OMPL planning pipeline, but add the CHOMP planning adapter. -->
-  <include file="$(find universal_robot)/launch/ompl_planning_pipeline.launch.xml">
+  <include file="$(find ur5_moveit_config)/launch/ompl_planning_pipeline.launch.xml">
     <arg name="planning_adapters" value="
        default_planner_request_adapters/AddTimeParameterization
        default_planner_request_adapters/FixWorkspaceBounds
@@ -11,7 +11,7 @@
        />
   </include>
   <!-- load chomp config -->
-  <rosparam command="load" file="$(find universal_robot)/config/chomp_planning.yaml"/>
+  <rosparam command="load" file="$(find ur5_moveit_config)/config/chomp_planning.yaml"/>
   <!-- override trajectory_initialization_method -->
   <param name="trajectory_initialization_method" value="fillTrajectory"/>
 </launch>
