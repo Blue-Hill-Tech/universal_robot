@@ -39,7 +39,7 @@ joint_limits:
     max_acceleration: 3.2
   wrist_3_joint:
     max_position: 5.4
-    min_position: -1.8
+    min_position: -2.4
     has_velocity_limits: true
     max_velocity: 3.2
     has_acceleration_limits: false
