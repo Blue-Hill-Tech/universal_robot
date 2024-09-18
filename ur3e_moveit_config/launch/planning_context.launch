@@ -1,4 +1,5 @@
 <launch>
+  <arg name="use_linear_eof" default="false" />
   <!-- By default we do not overwrite the URDF. Change the following to true to change the default behavior -->
   <arg name="load_robot_description" default="false"/>
 
