@@ -1,7 +1,7 @@
 <launch>
   <arg name="sim" default="false" />
   <arg name="debug" default="false" />
-  <arg name="use_linear_eof" default="false" />
+  <arg name="use_linear_eof" default="true" />
 
   <!-- Remap follow_joint_trajectory -->
   <remap if="$(arg sim)" from="/scaled_pos_joint_traj_controller/follow_joint_trajectory" to="/pos_joint_traj_controller/follow_joint_trajectory"/>
