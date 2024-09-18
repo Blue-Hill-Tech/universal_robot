@@ -8,7 +8,7 @@
   <xacro:ur5e_robot prefix="" />
 
   <!-- end-effector -->
-  <xacro:include filename="$(find ur_description)/urdf/inc/eof_small.xacro" />
+  <xacro:include filename="$(find ur_description)/urdf/inc/eof_small_linear.xacro" />
 
   <!-- end-effector -->
   <!-- Here we include the end-effector by setting the parameters -->
