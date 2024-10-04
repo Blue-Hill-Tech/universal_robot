@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="ur3e_with_inspire">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="manipulator">
+        <link name="base_link"/>
+        <link name="base"/>
+        <link name="base_link_inertia"/>
+        <link name="shoulder_link"/>
+        <link name="upper_arm_link"/>
+        <link name="forearm_link"/>
+        <link name="wrist_1_link"/>
+        <link name="wrist_2_link"/>
+        <link name="wrist_3_link"/>
+        <link name="flange"/>
+        <link name="tool0"/>
+        <joint name="shoulder_pan_joint"/>
+        <joint name="shoulder_lift_joint"/>
+        <joint name="elbow_joint"/>
+        <joint name="wrist_1_joint"/>
+        <joint name="wrist_2_joint"/>
+        <joint name="wrist_3_joint"/>
+    </group>
+    <group name="hand">
+        <link name="hand_base_link"/>
+        <link name="index_proximal"/>
+        <link name="index_intermediate"/>
+        <link name="index_tip"/>
+        <link name="middle_proximal"/>
+        <link name="middle_intermediate"/>
+        <link name="middle_tip"/>
+        <link name="pinky_proximal"/>
+        <link name="pinky_intermediate"/>
+        <link name="pinky_tip"/>
+        <link name="ring_proximal"/>
+        <link name="ring_intermediate"/>
+        <link name="ring_tip"/>
+        <link name="thumb_proximal_base"/>
+        <link name="thumb_proximal"/>
+        <link name="thumb_intermediate"/>
+        <link name="thumb_distal"/>
+        <link name="thumb_tip"/>
+        <joint name="index_proximal_joint"/>
+        <joint name="index_intermediate_joint"/>
+        <joint name="middle_proximal_joint"/>
+        <joint name="middle_intermediate_joint"/>
+        <joint name="pinky_proximal_joint"/>
+        <joint name="pinky_intermediate_joint"/>
+        <joint name="ring_proximal_joint"/>
+        <joint name="ring_intermediate_joint"/>
+        <joint name="thumb_proximal_yaw_joint"/>
+        <joint name="thumb_proximal_pitch_joint"/>
+        <joint name="thumb_intermediate_joint"/>
+        <joint name="thumb_distal_joint"/>
+    </group>
+    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
+    <end_effector name="inspire_hand" parent_link="tool0" group="hand" parent_group="manipulator"/>
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="base_link_inertia" link2="shoulder_link" reason="Adjacent"/>
+    <disable_collisions link1="base_link_inertia" link2="upper_arm_link" reason="Never"/>
+    <disable_collisions link1="base_link_inertia" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="base_link_inertia" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="forearm_link" link2="upper_arm_link" reason="Adjacent"/>
+    <disable_collisions link1="forearm_link" link2="wrist_1_link" reason="Adjacent"/>
+    <disable_collisions link1="hand_base_link" link2="index_intermediate" reason="Never"/>
+    <disable_collisions link1="hand_base_link" link2="index_proximal" reason="Adjacent"/>
+    <disable_collisions link1="hand_base_link" link2="middle_intermediate" reason="Never"/>
+    <disable_collisions link1="hand_base_link" link2="middle_proximal" reason="Adjacent"/>
+    <disable_collisions link1="hand_base_link" link2="pinky_intermediate" reason="Never"/>
+    <disable_collisions link1="hand_base_link" link2="pinky_proximal" reason="Adjacent"/>
+    <disable_collisions link1="hand_base_link" link2="ring_intermediate" reason="Never"/>
+    <disable_collisions link1="hand_base_link" link2="ring_proximal" reason="Adjacent"/>
+    <disable_collisions link1="hand_base_link" link2="thumb_distal" reason="Never"/>
+    <disable_collisions link1="hand_base_link" link2="thumb_proximal" reason="Default"/>
+    <disable_collisions link1="hand_base_link" link2="thumb_proximal_base" reason="Adjacent"/>
+    <disable_collisions link1="hand_base_link" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="hand_base_link" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="hand_base_link" link2="wrist_3_link" reason="Adjacent"/>
+    <disable_collisions link1="index_intermediate" link2="index_proximal" reason="Adjacent"/>
+    <disable_collisions link1="index_intermediate" link2="middle_intermediate" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="middle_proximal" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="pinky_intermediate" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="pinky_proximal" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="ring_intermediate" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="ring_proximal" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="index_intermediate" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="middle_intermediate" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="middle_proximal" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="pinky_intermediate" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="pinky_proximal" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="ring_intermediate" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="ring_proximal" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="index_proximal" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="middle_proximal" reason="Adjacent"/>
+    <disable_collisions link1="middle_intermediate" link2="pinky_intermediate" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="pinky_proximal" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="ring_intermediate" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="ring_proximal" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="thumb_distal" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="thumb_intermediate" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="middle_intermediate" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="pinky_intermediate" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="pinky_proximal" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="ring_intermediate" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="ring_proximal" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="thumb_distal" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="thumb_intermediate" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="middle_proximal" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="pinky_proximal" reason="Adjacent"/>
+    <disable_collisions link1="pinky_intermediate" link2="ring_intermediate" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="ring_proximal" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="thumb_distal" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="thumb_intermediate" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="pinky_intermediate" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="ring_intermediate" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="ring_proximal" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="thumb_distal" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="thumb_intermediate" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="pinky_proximal" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="ring_intermediate" link2="ring_proximal" reason="Adjacent"/>
+    <disable_collisions link1="ring_intermediate" link2="thumb_distal" reason="Never"/>
+    <disable_collisions link1="ring_intermediate" link2="thumb_intermediate" reason="Never"/>
+    <disable_collisions link1="ring_intermediate" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="ring_intermediate" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="ring_intermediate" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="ring_intermediate" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="ring_intermediate" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="ring_proximal" link2="thumb_distal" reason="Never"/>
+    <disable_collisions link1="ring_proximal" link2="thumb_intermediate" reason="Never"/>
+    <disable_collisions link1="ring_proximal" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="ring_proximal" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="ring_proximal" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="ring_proximal" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="ring_proximal" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="shoulder_link" link2="upper_arm_link" reason="Adjacent"/>
+    <disable_collisions link1="shoulder_link" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="shoulder_link" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="thumb_distal" link2="thumb_intermediate" reason="Adjacent"/>
+    <disable_collisions link1="thumb_distal" link2="thumb_proximal" reason="Never"/>
+    <disable_collisions link1="thumb_distal" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="thumb_distal" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="thumb_distal" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="thumb_distal" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="thumb_intermediate" link2="thumb_proximal" reason="Adjacent"/>
+    <disable_collisions link1="thumb_intermediate" link2="thumb_proximal_base" reason="Never"/>
+    <disable_collisions link1="thumb_intermediate" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="thumb_intermediate" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="thumb_intermediate" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="thumb_proximal" link2="thumb_proximal_base" reason="Adjacent"/>
+    <disable_collisions link1="thumb_proximal" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="thumb_proximal" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="thumb_proximal" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="thumb_proximal_base" link2="wrist_1_link" reason="Never"/>
+    <disable_collisions link1="thumb_proximal_base" link2="wrist_2_link" reason="Never"/>
+    <disable_collisions link1="thumb_proximal_base" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="wrist_1_link" link2="wrist_2_link" reason="Adjacent"/>
+    <disable_collisions link1="wrist_1_link" link2="wrist_3_link" reason="Never"/>
+    <disable_collisions link1="wrist_2_link" link2="wrist_3_link" reason="Adjacent"/>
+</robot>

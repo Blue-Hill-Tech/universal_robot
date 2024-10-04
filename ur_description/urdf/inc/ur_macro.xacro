@@ -303,13 +303,6 @@
       <dynamics damping="0" friction="0"/>
     </joint>
 
-    <!-- define the ur's position and orientation in the world coordinate system -->
-    <link name="${prefix}world" />
-    <joint name="${prefix}world_joint" type="fixed">
-      <parent link="${prefix}world" />
-      <child link="${prefix}base_link" /> <!-- TODO: check base_link name of robot -->
-      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
-    </joint>
     <!-- ROS-Industrial 'base' frame: base_link to UR 'Base' Coordinates transform -->
     <link name="${prefix}base"/>
     <joint name="${prefix}base_link-base_fixed_joint" type="fixed">

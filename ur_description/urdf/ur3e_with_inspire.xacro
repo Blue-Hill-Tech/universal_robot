@@ -1,20 +1,20 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur3e_with_eof">
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur3e_with_inspire">
 
-  <!-- ur5e -->
+  <!-- ur3e -->
   <xacro:include filename="$(find ur_description)/urdf/inc/ur3e_macro.xacro" />
 
   <!-- arm -->
   <xacro:ur3e_robot prefix="" />
 
   <!-- end-effector -->
-  <xacro:include filename="$(find ur_description)/urdf/inc/eof_small.xacro" />
+  <xacro:include filename="$(find ur_description)/urdf/inspire_hand_left.urdf.xacro" />
 
   <!-- end-effector -->
   <!-- Here we include the end-effector by setting the parameters -->
   <!-- TODO: check end-effector link name of robot -->
-  <xacro:eof prefix="" connected_to="tool0"/>
-
+  <xacro:inspire_hand_left prefix="" connected_to="tool0"/>
+  
   <!--Define the robot poses in the world-->
   <!-- define the ur's position and orientation in the world coordinate system -->
   <link name="world" />

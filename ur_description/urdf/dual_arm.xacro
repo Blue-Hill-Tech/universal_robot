@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="dual_arm">
+
+  <!-- ur3e -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur3e_macro.xacro" />
+
+  <!-- right arm -->
+  <xacro:ur3e_robot prefix="right_" />
+
+  <!-- end-effector -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/eof_small.xacro" />
+
+  <!-- end-effector -->
+  <!-- Here we include the end-effector by setting the parameters -->
+  <!-- TODO: check end-effector link name of robot -->
+  <xacro:eof prefix="right_" connected_to="right_tool0"/>
+
+  <!-- arm -->
+  <xacro:ur3e_robot prefix="left_" />
+  
+  <!-- end-effector -->
+  <xacro:include filename="$(find ur_description)/urdf/inspire_hand_left.urdf.xacro" />
+
+  <!-- end-effector -->
+  <!-- Here we include the end-effector by setting the parameters -->
+  <!-- TODO: check end-effector link name of robot -->
+  <xacro:inspire_hand_left prefix="left_" connected_to="left_tool0"/>
+  
+  <link name="world"/>
+
+
+  <!--Define the robot poses in the world-->
+
+  <joint name="world_to_right" type="fixed">
+
+    <parent link="world" />
+
+    <child link = "right_base_link" />
+
+    <origin xyz="-0.5 0 0" rpy="0 0 0" />
+
+  </joint>
+
+  <joint name="world_to_left" type="fixed">
+
+    <parent link="world" />
+
+    <child link = "left_base_link" />
+
+    <origin xyz="0.5 0 0" rpy="0 0 0" />
+
+  </joint>
+  
+</robot>

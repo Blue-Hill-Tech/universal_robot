@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ur_description
+    relative_path: urdf/ur3e_with_inspire.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/ur3e_with_inspire.srdf
+  CONFIG:
+    author_name: Shuo Liu
+    author_email: shuo891228@hotmail.com
+    generated_timestamp: 1727890349
