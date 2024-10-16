@@ -8,93 +8,87 @@ default_acceleration_scaling_factor: 0.1
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
+  shoulder_pan_joint:
+    max_position: 2.8
+    min_position: -5.0
+    has_velocity_limits: true
+    max_velocity: 3.15
+    has_acceleration_limits: false
+    max_acceleration: 3.15
+  shoulder_lift_joint:
+    max_position: 0.2
+    min_position: -3.0
+    has_velocity_limits: true
+    max_velocity: 3.15
+    has_acceleration_limits: false
+    max_acceleration: 3.15
   elbow_joint:
+    max_position: 3.0
+    min_position: -1.0
     has_velocity_limits: true
-    max_velocity: 3.141592653589793
+    max_velocity: 3.15
     has_acceleration_limits: false
-    max_acceleration: 0
-  index_intermediate_joint:
+    max_acceleration: 3.15
+  wrist_1_joint:
+    max_position: 2.2
+    min_position: -3.2
     has_velocity_limits: true
-    max_velocity: 0.5
+    max_velocity: 3.2
     has_acceleration_limits: false
-    max_acceleration: 0
+    max_acceleration: 3.2
+  wrist_2_joint:
+    max_position: 3.7
+    min_position: -1.4
+    has_velocity_limits: true
+    max_velocity: 3.2
+    has_acceleration_limits: false
+    max_acceleration: 3.2
+  wrist_3_joint:
+    max_position: 5.4
+    min_position: -2.4
+    has_velocity_limits: true
+    max_velocity: 3.2
+    has_acceleration_limits: false
+    max_acceleration: 3.2
   index_proximal_joint:
-    has_velocity_limits: true
-    max_velocity: 0.5
-    has_acceleration_limits: false
-    max_acceleration: 0
-  middle_intermediate_joint:
+    max_position: 1.47
+    min_position: 0.0
     has_velocity_limits: true
     max_velocity: 0.5
     has_acceleration_limits: false
     max_acceleration: 0
   middle_proximal_joint:
-    has_velocity_limits: true
-    max_velocity: 0.5
-    has_acceleration_limits: false
-    max_acceleration: 0
-  pinky_intermediate_joint:
+    max_position: 1.47
+    min_position: 0.0
     has_velocity_limits: true
     max_velocity: 0.5
     has_acceleration_limits: false
     max_acceleration: 0
   pinky_proximal_joint:
-    has_velocity_limits: true
-    max_velocity: 0.5
-    has_acceleration_limits: false
-    max_acceleration: 0
-  ring_intermediate_joint:
+    max_position: 1.47
+    min_position: 0.0
     has_velocity_limits: true
     max_velocity: 0.5
     has_acceleration_limits: false
     max_acceleration: 0
   ring_proximal_joint:
-    has_velocity_limits: true
-    max_velocity: 0.5
-    has_acceleration_limits: false
-    max_acceleration: 0
-  shoulder_lift_joint:
-    has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  shoulder_pan_joint:
-    has_velocity_limits: true
-    max_velocity: 3.141592653589793
-    has_acceleration_limits: false
-    max_acceleration: 0
-  thumb_distal_joint:
-    has_velocity_limits: true
-    max_velocity: 0.5
-    has_acceleration_limits: false
-    max_acceleration: 0
-  thumb_intermediate_joint:
+    max_position: 1.47
+    min_position: 0.0
     has_velocity_limits: true
     max_velocity: 0.5
     has_acceleration_limits: false
     max_acceleration: 0
   thumb_proximal_pitch_joint:
+    max_position: 1.308
+    min_position: 0.0
     has_velocity_limits: true
     max_velocity: 0.5
     has_acceleration_limits: false
     max_acceleration: 0
   thumb_proximal_yaw_joint:
+    max_position: 0.6
+    min_position: 0.0
     has_velocity_limits: true
     max_velocity: 0.5
-    has_acceleration_limits: false
-    max_acceleration: 0
-  wrist_1_joint:
-    has_velocity_limits: true
-    max_velocity: 6.283185307179586
-    has_acceleration_limits: false
-    max_acceleration: 0
-  wrist_2_joint:
-    has_velocity_limits: true
-    max_velocity: 6.283185307179586
-    has_acceleration_limits: false
-    max_acceleration: 0
-  wrist_3_joint:
-    has_velocity_limits: true
-    max_velocity: 6.283185307179586
     has_acceleration_limits: false
     max_acceleration: 0
