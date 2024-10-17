@@ -39,8 +39,8 @@ controller_list:
       - wrist_1_joint
       - wrist_2_joint
       - wrist_3_joint
-  - name: pass_through_controllers
-    action_ns: follow_joint_trajectory
+  - name: hand_pos_joint_traj_controller
+    action_ns: pass_through_controllers
     default: True
     type: FollowJointTrajectory
     joints:
