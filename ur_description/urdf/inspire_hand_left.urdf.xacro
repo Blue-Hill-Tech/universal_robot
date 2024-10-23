@@ -6,7 +6,7 @@
       <!-- The parent link must be read from the robot model it is attached to. -->
       <parent link="${connected_to}"/>
       <child link="hand_base_link"/>
-      <origin xyz="0 0 0" rpy="-1.5707963 0 3.14159"/>
+      <origin xyz="0 0 0" rpy="-1.5707963 0 -1.5707963"/>
     </joint>
     <link name="hand_base_link">
       <inertial>
@@ -17,13 +17,13 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://ur_description/meshes/inspire_hand/visual/left_base_link.obj"/>
+          <mesh filename="package://ur_description/meshes/inspire_hand/visual/left_base_link_with_cam_mount.obj"/>
         </geometry>
       </visual>
       <collision>
         <origin xyz="0 -0.0136 0" rpy="1.57079 0 0"/>
         <geometry>
-          <cylinder length="0.0278" radius="0.028"/>
+          <mesh filename="package://ur_description/meshes/inspire_hand/visual/left_base_link_with_cam_mount.obj"/>
         </geometry>
       </collision>
       <collision>
