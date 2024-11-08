@@ -10,7 +10,7 @@ default_acceleration_scaling_factor: 0.1
 joint_limits:
   shoulder_pan_joint:
     max_position: 2.8
-    min_position: -5.0
+    min_position: -6.0
     has_velocity_limits: true
     max_velocity: 3.15
     has_acceleration_limits: false
