@@ -1,0 +1,20 @@
+controller_list:
+  - name: fake_manipulator_controller
+    joints:
+      - shoulder_pan_joint
+      - shoulder_lift_joint
+      - elbow_joint
+      - wrist_1_joint
+      - wrist_2_joint
+      - wrist_3_joint
+  - name: fake_hand_controller
+    joints:
+      - index_proximal_joint
+      - middle_proximal_joint
+      - pinky_proximal_joint
+      - ring_proximal_joint
+      - thumb_proximal_yaw_joint
+      - thumb_proximal_pitch_joint
+initial:  # Define initial robot poses.
+#  - group: manipulator
+#    pose: home
