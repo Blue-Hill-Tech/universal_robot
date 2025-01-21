@@ -13,6 +13,19 @@
         <chain base_link="base_link" tip_link="tool0"/>
     </group>
     <group name="hand">
+        <link name="hand_base_link"/>
+        <link name="left_index_1"/>
+        <link name="left_index_2"/>
+        <link name="left_middle_1"/>
+        <link name="left_middle_2"/>
+        <link name="left_little_1"/>
+        <link name="left_little_2"/>
+        <link name="left_ring_1"/>
+        <link name="left_ring_2"/>
+        <link name="left_thumb_swing"/>
+        <link name="left_thumb_1"/>
+        <link name="left_thumb_2"/>
+        <link name="left_thumb_3"/>
         <joint name="L_hand_base_joint"/>
         <joint name="index_proximal_joint"/>
         <joint name="left_index_2_joint"/>
