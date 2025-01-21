@@ -18,7 +18,7 @@
         <joint name="left_index_2_joint"/>
         <joint name="middle_proximal_joint"/>
         <joint name="left_middle_2_joint"/>
-        <joint name="pinky_proximal_joint_joint"/>
+        <joint name="pinky_proximal_joint"/>
         <joint name="left_little_2_joint"/>
         <joint name="ring_proximal_joint"/>
         <joint name="left_ring_2_joint"/>

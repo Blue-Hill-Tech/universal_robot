@@ -17,7 +17,7 @@ hardware_interface:
     - wrist_3_joint
     - index_proximal_joint
     - middle_proximal_joint
-    - pinky_proximal_joint_joint
+    - pinky_proximal_joint
     - ring_proximal_joint
     - thumb_proximal_yaw_joint
     - thumb_proximal_pitch_joint

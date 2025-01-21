@@ -650,7 +650,7 @@
         offset="0" />
   </joint>
   <link
-    name="${prefix}pinky_proximal_joint">
+    name="${prefix}left_little_1">
     <inertial>
       <origin
         xyz="0.0020908902145567 0.0123138388094518 -0.00779930416612102"
@@ -671,7 +671,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ur_description/meshes/inspire_hand/v2/pinky_proximal_joint.STL" />
+          filename="package://ur_description/meshes/inspire_hand/v2/left_little_1.STL" />
       </geometry>
       <material
         name="">
@@ -685,12 +685,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://ur_description/meshes/inspire_hand/v2/pinky_proximal_joint.STL" />
+          filename="package://ur_description/meshes/inspire_hand/v2/left_little_1.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="${prefix}pinky_proximal_joint_joint"
+    name="${prefix}pinky_proximal_joint"
     type="revolute">
     <origin
       xyz="0.016446 0.11125 0.042817"
@@ -698,7 +698,7 @@
     <parent
       link="${prefix}hand_base_link" />
     <child
-      link="${prefix}pinky_proximal_joint" />
+      link="${prefix}left_little_1" />
     <axis
       xyz="0 0 -1" />
     <limit
@@ -754,7 +754,7 @@
       xyz="0.0023072 0.032694 -0.0003"
       rpy="0 0 0" />
     <parent
-      link="${prefix}pinky_proximal_joint" />
+      link="${prefix}left_little_1" />
     <child
       link="${prefix}left_little_2" />
     <axis
@@ -765,7 +765,7 @@
       effort="1"
       velocity="100" />
     <mimic
-        joint="${prefix}pinky_proximal_joint_joint"
+        joint="${prefix}pinky_proximal_joint"
         multiplier="1.05"
         offset="0" />      
   </joint>
@@ -803,7 +803,7 @@
   <xacro:transmission_block joint_name="index_proximal_joint"/>
   <xacro:transmission_block joint_name="middle_proximal_joint"/>
   <xacro:transmission_block joint_name="ring_proximal_joint"/>
-  <xacro:transmission_block joint_name="pinky_proximal_joint_joint"/>
+  <xacro:transmission_block joint_name="pinky_proximal_joint"/>
   
   <xacro:macro name="mimic_joint_plugin_gazebo" params="name_prefix parent_joint mimic_joint has_pid:=false multiplier:=1.0 offset:=0 sensitiveness:=0.0 max_effort:=1.0 robot_namespace:=''">
     <gazebo>
@@ -845,7 +845,7 @@
     has_pid="true" multiplier="1.0" max_effort="10.0" />
     
   <xacro:mimic_joint_plugin_gazebo name_prefix="${prefix}left_little_2_joint"
-    parent_joint="${prefix}pinky_proximal_joint_joint" mimic_joint="${prefix}left_little_2_joint"
+    parent_joint="${prefix}pinky_proximal_joint" mimic_joint="${prefix}left_little_2_joint"
     has_pid="true" multiplier="1.0" max_effort="10.0" />
   
   </xacro:macro>
