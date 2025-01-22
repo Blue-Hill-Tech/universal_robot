@@ -10,6 +10,7 @@
   <arg name="safety_limits" default="false" doc="If True, enable the safety limits controller"/>
   <arg name="safety_pos_margin" default="0.15" doc="The lower/upper limits in the safety controller" />
   <arg name="safety_k_position" default="20" doc="Used to set k position in the safety controller" />
+  <arg name ="use_inspire_v2" default="false" />
 
   <!-- Load the top-level (ie: stand-alone and complete) xacro for the UR
        variant defined by the set of yaml parameter files (so to load a UR5
@@ -28,14 +29,28 @@
        include the ur_macro.xacro file into it. Then write a new .launch file
        to load it onto the parameter server.
   -->
-  <param name="robot_description" command="$(find xacro)/xacro '$(find ur_description)/urdf/dual_arm_left_with_inspire.xacro'
-    joint_limit_params:=$(arg joint_limit_params)
-    kinematics_params:=$(arg kinematics_params)
-    physical_params:=$(arg physical_params)
-    visual_params:=$(arg visual_params)
-    transmission_hw_interface:=$(arg transmission_hw_interface)
-    safety_limits:=$(arg safety_limits)
-    safety_pos_margin:=$(arg safety_pos_margin)
-    safety_k_position:=$(arg safety_k_position)"
-    />
+  <group if="$(arg use_inspire_v2)">
+    <param name="robot_description" command="$(find xacro)/xacro '$(find ur_description)/urdf/dual_arm_left_with_inspire_v2.xacro'
+      joint_limit_params:=$(arg joint_limit_params)
+      kinematics_params:=$(arg kinematics_params)
+      physical_params:=$(arg physical_params)
+      visual_params:=$(arg visual_params)
+      transmission_hw_interface:=$(arg transmission_hw_interface)
+      safety_limits:=$(arg safety_limits)
+      safety_pos_margin:=$(arg safety_pos_margin)
+      safety_k_position:=$(arg safety_k_position)"
+      />
+  </group>
+  <group unless="$(arg use_inspire_v2)">
+    <param name="robot_description" command="$(find xacro)/xacro '$(find ur_description)/urdf/dual_arm_left_with_inspire.xacro'
+      joint_limit_params:=$(arg joint_limit_params)
+      kinematics_params:=$(arg kinematics_params)
+      physical_params:=$(arg physical_params)
+      visual_params:=$(arg visual_params)
+      transmission_hw_interface:=$(arg transmission_hw_interface)
+      safety_limits:=$(arg safety_limits)
+      safety_pos_margin:=$(arg safety_pos_margin)
+      safety_k_position:=$(arg safety_k_position)"
+      />
+  </group>
 </launch>
