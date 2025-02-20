@@ -10,6 +10,7 @@
   <arg name="safety_limits" default="false" doc="If True, enable the safety limits controller"/>
   <arg name="safety_pos_margin" default="0.15" doc="The lower/upper limits in the safety controller" />
   <arg name="safety_k_position" default="20" doc="Used to set k position in the safety controller" />
+  <arg name ="use_inspire_v2" default="false" />
 
   <!-- Load the top-level (ie: stand-alone and complete) xacro for the UR
        variant defined by the set of yaml parameter files (so to load a UR5
